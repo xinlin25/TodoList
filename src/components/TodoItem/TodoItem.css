@@ -2,3 +2,9 @@
     font-size: 20px;
     margin-bottom: 5px;
 }
+
+.completed {
+    text-decoration: line-through;
+    /* If the task is completed goes to the bottom */
+    order: 99;
+}

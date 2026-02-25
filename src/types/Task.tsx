@@ -1,5 +1,5 @@
 export interface Task {
-    id: number,
+    id: number, //Use id because each child should have a unique "key" prop
     text: string,
     completed: boolean
 }

@@ -7,11 +7,7 @@ interface TodoItemProps {
 } 
 
 const TodoItem: React.FC<TodoItemProps> = ({task}) => { 
-    return ( 
-    <li className="todo-item"> 
-    <span className={task.completed ? "completed": ""}>{task.text}</span> 
-    </li> 
-    );
+    return <li className={`todo-item ${task.completed ? "completed" : ""}`}>{task.text}</li>;
 } 
 
 export default TodoItem;
