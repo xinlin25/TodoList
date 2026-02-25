@@ -1,15 +1,21 @@
 import React from "react"; 
+import { useState } from "react";
+
 import TodoList from "../TodoList/TodoList";
 import { Task } from "../../types/Task"; 
 import "./TodoApp.css";
 
 const TodoApp: React.FC = () => { 
     //List of tasks
-    const tasks: Task[] = [ 
-        { id: 1, text: "Learn React", completed: false }, 
-        { id: 2, text: "Pick up my brother", completed: true }, 
-        { id: 3, text: "Learn TypeScript", completed: false } 
-    ]; 
+    const createInitialTasks = (): Task[] => {
+        return [
+            { id: 1, text: "Learn React", completed: false }, 
+            { id: 2, text: "Pick up my brother", completed: true }, 
+            { id: 3, text: "Learn TypeScript", completed: false } 
+        ];
+    };
+
+    const [tasks, setTasks] = useState<Task[]>(createInitialTasks);
 
     return ( 
         <div className="app-container"> 
