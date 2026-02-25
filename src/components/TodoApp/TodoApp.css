@@ -1,0 +1,22 @@
+body {
+    background-color: rgba(234, 197, 234, 0.548);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    color: purple;
+    font-size: 35px;
+}
