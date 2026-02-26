@@ -5,6 +5,8 @@
 
 .completed {
     text-decoration: line-through;
-    /* If the task is completed goes to the bottom */
-    order: 99;
+}
+
+.todo-item input[type="checkbox"] {
+    accent-color: purple;
 }

@@ -4,37 +4,50 @@ import TodoList from "../TodoList/TodoList";
 import { Task } from "../../types/Task"; 
 import "./TodoApp.css";
 
-const TodoApp: React.FC = () => { 
-    //List of tasks
-    const createInitialTasks = (): Task[] => {
-        return [
-            { id: 1, text: "Learn React", completed: false }, 
-            { id: 2, text: "Pick up my brother", completed: true }, 
-            { id: 3, text: "Learn TypeScript", completed: false } 
-        ];
+const TodoApp: React.FC = () => {    
+    //List of initial tasks
+    const initialTasks = [
+        { id: 1, text: "Learn React", completed: false }, 
+        { id: 2, text: "Pick up my brother", completed: true }, 
+        { id: 3, text: "Learn TypeScript", completed: false } 
+    ];
+
+    const [tasks, setTasks] = useState<Task[]>(initialTasks);
+    const [text, setText] = useState("");
+    const [error, setError] = useState("");
+
+    const changeState = (id: number) => {
+        setTasks(prevTasks => 
+            prevTasks.map(task =>
+                task.id === id? {...task, completed: !task.completed}: task
+            )
+        );
     };
 
-    const [tasks, setTasks] = useState<Task[]>(createInitialTasks);
-    const [text, setText] = useState("");
-
-    const addTask = (e: React.FormEvent<HTMLFormElement>) => {
+    const addTask = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const textTrimmed = text.trim();
 
-        if (text.trim() === "") return;
+        if (textTrimmed === "") {
+            setError("Your task must have at least one character.");
+            return;
+        }
 
         const newTask: Task = {
             id: tasks.length,
-            text: text,
+            text: textTrimmed,
             completed: false
         };
         /* prevTasks += newTask --> Add a new task to the array */
         setTasks(prevTasks => [...prevTasks, newTask]);
         setText("");
+        setError("");
     };
 
     return ( 
         <div className="app-container"> 
             <h1>Todo List</h1> 
+            {error && <p className="error-msg">{error}</p>}
             <form className="submit" onSubmit={addTask}>
                 <input
                     value={text}
@@ -44,8 +57,9 @@ const TodoApp: React.FC = () => {
                 <button type="submit">Enter</button>
             </form>
 
-            <TodoList tasks={tasks} />
+            <TodoList changeState={changeState} tasks={tasks} />
         </div>
     ); 
 }; 
+
 export default TodoApp;

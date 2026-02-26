@@ -5,12 +5,16 @@ import "./TodoList.css";
 
 interface TodoListProps { //Props --> Properties, heritage data from the parent 
     tasks: Task[]; 
+    changeState: (id:number) => void;
 } 
-const TodoList: React.FC<TodoListProps> = ({ tasks }) => { //TodoList expects props of type TodoListProps, and extracts tasks from those props
+
+const TodoList: React.FC<TodoListProps> = ({ tasks, changeState }) => { //TodoList expects props of type TodoListProps, and extracts tasks from those props
+    const sortedTasks = [...tasks].sort((a,b) => Number(a.completed) - Number(b.completed));
+    
     return ( 
         <ul className="todo-list"> 
             {/* Goes through the array and it returns a new one  */}
-            {tasks.map((task) => ( <TodoItem key={task.id} task={task} /> ))} 
+            {sortedTasks.map((task) => ( <TodoItem key={task.id} task={task} changeState={changeState} /> ))} 
         </ul> 
     ); 
 }; 
