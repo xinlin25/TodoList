@@ -34,7 +34,7 @@ const TodoApp: React.FC = () => {
     }
 
     const newTask: Task = {
-      id: tasks.length,
+      id: Date.now(),
       text: textTrimmed,
       completed: false,
     };
