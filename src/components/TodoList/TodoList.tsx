@@ -9,7 +9,7 @@ interface TodoListProps { //Props --> Properties, heritage data from the parent
 const TodoList: React.FC<TodoListProps> = ({ tasks }) => { //TodoList expects props of type TodoListProps, and extracts tasks from those props
     return ( 
         <ul className="todo-list"> 
-            {/* Similar to forEach */}
+            {/* Goes through the array and it returns a new one  */}
             {tasks.map((task) => ( <TodoItem key={task.id} task={task} /> ))} 
         </ul> 
     ); 
