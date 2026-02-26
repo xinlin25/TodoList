@@ -1,12 +1,12 @@
 .todo-item {
-    font-size: 20px;
-    margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .todo-item input[type="checkbox"] {
-    accent-color: purple;
+  accent-color: purple;
 }
