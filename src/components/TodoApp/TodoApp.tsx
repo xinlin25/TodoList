@@ -6,11 +6,14 @@ import "./TodoApp.css";
 
 const TodoApp: React.FC = () => {
   //List of initial tasks
-  const initialTasks = [
+
+  const initialTasks: Task[] | (() => Task[]) = [];
+
+  /*const initialTasks = [
     { id: 1, text: "Learn React", completed: false },
     { id: 2, text: "Pick up my brother", completed: true },
     { id: 3, text: "Learn TypeScript", completed: false },
-  ];
+  ];*/
 
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [text, setText] = useState("");
@@ -47,6 +50,7 @@ const TodoApp: React.FC = () => {
   return (
     <div className="app-container">
       <h1>Todo List</h1>
+      {/* If error(has something wrote on it) is true it renders the message */}
       {error && <p className="error-msg">{error}</p>}
       <form className="submit" onSubmit={addTask}>
         <input
