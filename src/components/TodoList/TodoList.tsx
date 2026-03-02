@@ -6,10 +6,10 @@ import "./TodoList.css";
 interface TodoListProps {
   //Props --> Properties, inherits data from the parent
   tasks: Task[];
-  toggleComplete: (id: number) => void;
+  toggleCompleted: (id: number) => void;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ tasks, toggleComplete }) => {
+const TodoList: React.FC<TodoListProps> = ({ tasks, toggleCompleted }) => {
   //TodoList expects props of type TodoListProps, and extracts tasks from those props
   const sortedTasks = [...tasks].sort(
     (a, b) => Number(a.completed) - Number(b.completed),
@@ -19,7 +19,7 @@ const TodoList: React.FC<TodoListProps> = ({ tasks, toggleComplete }) => {
     <ul className="todo-list">
       {/* Goes through the array and it returns a new one  */}
       {sortedTasks.map((task) => (
-        <TodoItem key={task.id} task={task} toggleComplete={toggleComplete} />
+        <TodoItem key={task.id} task={task} toggleCompleted={toggleCompleted} />
       ))}
     </ul>
   );

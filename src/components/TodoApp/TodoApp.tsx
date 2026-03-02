@@ -16,7 +16,7 @@ const TodoApp: React.FC = () => {
   const [text, setText] = useState("");
   const [error, setError] = useState("");
 
-  const toggleComplete = (id: number) => {
+  const toggleCompleted = (id: number) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
         task.id === id ? { ...task, completed: !task.completed } : task,
@@ -57,7 +57,7 @@ const TodoApp: React.FC = () => {
         <button type="submit">Enter</button>
       </form>
 
-      <TodoList toggleComplete={toggleComplete} tasks={tasks} />
+      <TodoList toggleCompleted={toggleCompleted} tasks={tasks} />
     </div>
   );
 };

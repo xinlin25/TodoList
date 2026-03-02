@@ -4,16 +4,16 @@ import "./TodoItem.css";
 
 interface TodoItemProps {
   task: Task;
-  toggleComplete: (id: number) => void;
+  toggleCompleted: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ task, toggleComplete }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ task, toggleCompleted }) => {
   return (
     <li className={`todo-item ${task.completed ? "completed" : ""}`}>
       <input
         type="checkbox"
         checked={task.completed}
-        onChange={() => toggleComplete(task.id)}
+        onChange={() => toggleCompleted(task.id)}
       />{" "}
       {task.text}
     </li>
