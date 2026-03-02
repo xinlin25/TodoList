@@ -15,6 +15,10 @@ const TodoList: React.FC<TodoListProps> = ({ tasks, toggleCompleted }) => {
     (a, b) => Number(a.completed) - Number(b.completed),
   );
 
+  if (tasks.length === 0) {
+    return <p className="empty-msg">No tasks yet. Add one to the list!</p>;
+  }
+
   return (
     <ul className="todo-list">
       {/* Goes through the array and it returns a new one  */}
