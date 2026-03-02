@@ -51,6 +51,7 @@ const TodoApp: React.FC = () => {
   return (
     <div className="app-container">
       <h1>Todo List</h1>
+      {/* If error(has something wrote on it) is true it renders the message */}
       {error && <p className="error-msg">{error}</p>}
       <form className="submit" onSubmit={addTask}>
         <input
