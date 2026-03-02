@@ -24,6 +24,10 @@ const TodoApp: React.FC = () => {
     );
   };
 
+  const deleteTask = (id: number) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
   const addTask = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const textTrimmed = text.trim();
@@ -57,7 +61,11 @@ const TodoApp: React.FC = () => {
         <button type="submit">Enter</button>
       </form>
 
-      <TodoList changeState={changeState} tasks={tasks} />
+      <TodoList
+        changeState={changeState}
+        tasks={tasks}
+        deleteTask={deleteTask}
+      />
     </div>
   );
 };
