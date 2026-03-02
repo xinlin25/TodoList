@@ -1,22 +1,29 @@
 import React from "react";
 import { Task } from "../../types/Task";
 import "./TodoItem.css";
+import { Trash2 } from "lucide-react";
 
 interface TodoItemProps {
   task: Task;
   toggleCompleted: (id: number) => void;
+  deleteTask: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ task, toggleCompleted }) => {
+const TodoItem: React.FC<TodoItemProps> = ({
+  task,
+  toggleCompleted,
+  deleteTask,
+}) => {
   return (
-    <li className={`todo-item ${task.completed ? "completed" : ""}`}>
+    <div className={`todo-item ${task.completed ? "completed" : ""}`}>
       <input
         type="checkbox"
         checked={task.completed}
         onChange={() => toggleCompleted(task.id)}
-      />{" "}
-      {task.text}
-    </li>
+      />
+      <li>{task.text}</li>
+      <Trash2 size={15} onClick={() => deleteTask(task.id)} />
+    </div>
   );
 };
 
