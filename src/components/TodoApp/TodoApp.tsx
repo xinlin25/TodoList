@@ -5,14 +5,10 @@ import { Task } from "../../types/Task";
 import "./TodoApp.css";
 
 const TodoApp: React.FC = () => {
-  //List of initial tasks
-  const initialTasks = [
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Pick up my brother", completed: true },
-    { id: 3, text: "Learn TypeScript", completed: false },
-  ];
-
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const stored = localStorage.getItem("tasks");
+    return stored ? JSON.parse(stored) : []; //If JSON.parse(stored) is null, it returns []
+  });
   const [text, setText] = useState("");
   const [error, setError] = useState("");
 
