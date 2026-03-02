@@ -1,18 +1,28 @@
 import React from "react";
-import { Task } from "../../types/Task"; 
+import { Task } from "../../types/Task";
 import TodoItem from "../TodoItem/TodoItem";
-import "./TodoList.css"; 
+import "./TodoList.css";
 
-interface TodoListProps { //Props --> Properties, heritage data from the parent 
-    tasks: Task[]; 
-} 
-const TodoList: React.FC<TodoListProps> = ({ tasks }) => { //TodoList expects props of type TodoListProps, and extracts tasks from those props
-    return ( 
-        <ul className="todo-list"> 
-            {/* Goes through the array and it returns a new one  */}
-            {tasks.map((task) => ( <TodoItem key={task.id} task={task} /> ))} 
-        </ul> 
-    ); 
-}; 
+interface TodoListProps {
+  //Props --> Properties, inherits data from the parent
+  tasks: Task[];
+  toggleComplete: (id: number) => void;
+}
+
+const TodoList: React.FC<TodoListProps> = ({ tasks, toggleComplete }) => {
+  //TodoList expects props of type TodoListProps, and extracts tasks from those props
+  const sortedTasks = [...tasks].sort(
+    (a, b) => Number(a.completed) - Number(b.completed),
+  );
+
+  return (
+    <ul className="todo-list">
+      {/* Goes through the array and it returns a new one  */}
+      {sortedTasks.map((task) => (
+        <TodoItem key={task.id} task={task} toggleComplete={toggleComplete} />
+      ))}
+    </ul>
+  );
+};
 
 export default TodoList;
