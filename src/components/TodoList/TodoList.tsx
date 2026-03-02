@@ -4,15 +4,15 @@ import TodoItem from "../TodoItem/TodoItem";
 import "./TodoList.css";
 
 interface TodoListProps {
-  //Props --> Properties, heritage data from the parent
+  //Props --> Properties, inherits data from the parent
   tasks: Task[];
-  changeState: (id: number) => void;
+  toggleCompleted: (id: number) => void;
   deleteTask: (id: number) => void;
 }
 
 const TodoList: React.FC<TodoListProps> = ({
   tasks,
-  changeState,
+  toggleCompleted,
   deleteTask,
 }) => {
   //TodoList expects props of type TodoListProps, and extracts tasks from those props
@@ -27,7 +27,7 @@ const TodoList: React.FC<TodoListProps> = ({
         <TodoItem
           key={task.id}
           task={task}
-          changeState={changeState}
+          toggleCompleted={toggleCompleted}
           deleteTask={deleteTask}
         />
       ))}
