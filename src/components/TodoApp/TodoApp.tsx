@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import TodoList from "../TodoList/TodoList";
 import { Task } from "../../types/Task";
@@ -47,6 +47,10 @@ const TodoApp: React.FC = () => {
     setText("");
     setError("");
   };
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <div className="app-container">
