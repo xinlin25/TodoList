@@ -64,12 +64,15 @@ const TodoApp: React.FC = () => {
         />
         <button type="submit">Enter</button>
       </form>
-
-      <TodoList
-        toggleCompleted={toggleCompleted}
-        tasks={tasks}
-        deleteTask={deleteTask}
-      />
+      {tasks.length > 0 ? (
+        <TodoList
+          toggleCompleted={toggleCompleted}
+          tasks={tasks}
+          deleteTask={deleteTask}
+        />
+      ) : (
+        <p className="empty-msg">No tasks yet. Add one to the list!</p>
+      )}
     </div>
   );
 };
