@@ -15,15 +15,24 @@ const TodoItem: React.FC<TodoItemProps> = ({
   deleteTask,
 }) => {
   return (
-    <div className={`todo-item ${task.completed ? "completed" : ""}`}>
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => toggleCompleted(task.id)}
-      />
-      <li>{task.text}</li>
-      <Trash2 size={15} onClick={() => deleteTask(task.id)} />
-    </div>
+
+    <li className={`todo-item ${task.completed ? "completed" : ""}`}>
+      <div className="item-container">
+        <input
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => toggleCompleted(task.id)}
+        />
+        <p>{task.text}</p>
+        <button
+          onClick={() => deleteTask(task.id)}
+          className="delete-btn"
+          title="Delete task"
+        >
+          <Trash2 size={18} />
+        </button>
+      </div>
+    </li>
   );
 };
 

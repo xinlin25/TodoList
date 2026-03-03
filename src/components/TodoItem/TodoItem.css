@@ -6,6 +6,35 @@
   gap: 5px;
 }
 
+.item-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.item-container p {
+  margin: 0;
+}
+
+.delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: white;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: plum;
+}
+
 .completed {
   text-decoration: line-through;
 }
