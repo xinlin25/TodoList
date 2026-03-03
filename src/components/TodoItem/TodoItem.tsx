@@ -15,6 +15,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
   deleteTask,
 }) => {
   return (
+
     <li className={`todo-item ${task.completed ? "completed" : ""}`}>
       <div className="item-container">
         <input

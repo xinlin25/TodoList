@@ -1,21 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import TodoList from "../TodoList/TodoList";
 import { Task } from "../../types/Task";
 import "./TodoApp.css";
 
 const TodoApp: React.FC = () => {
-  //List of initial tasks
-
-  const initialTasks: Task[] | (() => Task[]) = [];
-
-  /*const initialTasks = [
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Pick up my brother", completed: true },
-    { id: 3, text: "Learn TypeScript", completed: false },
-  ];*/
-
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const stored = localStorage.getItem("tasks");
+    return stored ? JSON.parse(stored) : []; //If JSON.parse(stored) is null, it returns []
+  });
   const [text, setText] = useState("");
   const [error, setError] = useState("");
 
@@ -51,6 +44,10 @@ const TodoApp: React.FC = () => {
     setError("");
   };
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div className="app-container">
       <h1>Todo List</h1>
@@ -64,6 +61,7 @@ const TodoApp: React.FC = () => {
         />
         <button type="submit">Enter</button>
       </form>
+
       {tasks.length > 0 ? (
         <TodoList
           toggleCompleted={toggleCompleted}
@@ -73,6 +71,7 @@ const TodoApp: React.FC = () => {
       ) : (
         <p className="empty-msg">No tasks yet. Add one to the list!</p>
       )}
+
     </div>
   );
 };
