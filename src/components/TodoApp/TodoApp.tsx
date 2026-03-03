@@ -27,6 +27,10 @@ const TodoApp: React.FC = () => {
     );
   };
 
+  const deleteTask = (id: number) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
   const addTask = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const textTrimmed = text.trim();
@@ -60,8 +64,15 @@ const TodoApp: React.FC = () => {
         />
         <button type="submit">Enter</button>
       </form>
-
-      <TodoList toggleCompleted={toggleCompleted} tasks={tasks} />
+      {tasks.length > 0 ? (
+        <TodoList
+          toggleCompleted={toggleCompleted}
+          tasks={tasks}
+          deleteTask={deleteTask}
+        />
+      ) : (
+        <p className="empty-msg">No tasks yet. Add one to the list!</p>
+      )}
     </div>
   );
 };
