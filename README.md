@@ -58,6 +58,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - How to create a React component.
 - How to add Prettier to a React project.
 - Design Patterns such as `{myVar && <MyComponent>}`.
+- Methods like `map()`.
 - What are hooks, and how to use them. Ex: `useState` and `useEffect`.
 - Spread Operator (`...`).
 - Destructuring Objects.
