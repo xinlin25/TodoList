@@ -50,6 +50,22 @@ When refreshing the website, all tasks disappeared because React state resets on
 **Solution**
 Used `useEffect` to store tasks in `localStorage`.
 
+#### `Preventing Empty Task Submission ❌`
+
+**Problem**
+Users were able to submit empty tasks, or tasks with spaces in the beginning or ending.
+
+**Solution**
+Implemented a input validation before updating the tasks.
+
+#### `Repeated Task ID 🆔`
+
+**Problem**
+When completed one task and added one new, both have the same ID.
+
+**Solution**
+Used `Date.now()` for unique IDs, this is only a good solution for a small scale project.
+
 ## Preview
 
 ![App Preview Image](img/preview.png)
