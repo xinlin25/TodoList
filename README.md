@@ -4,6 +4,10 @@
 
 This project is a simple website application where you can save your daily tasks.
 
+## Preview
+
+![App Preview Image](img/preview.png)
+
 ## How to install the app
 
 Firstly, install the project dependencies:
@@ -83,7 +87,3 @@ When completed one task and added one new, both have the same ID.
 
 **Solution**
 Used `Date.now()` for unique IDs, this is only a good solution for a small scale project.
-
-## Preview
-
-![App Preview Image](img/preview.png)
