@@ -4,6 +4,23 @@
 
 This project is a simple website application where you can save your daily tasks.
 
+## How to install the app
+
+Firstly, install the project dependencies:
+
+**`npm install`**
+
+This command installs all the required packages listed in `package.json`.
+
+## How to run the app
+
+In the project directory, you can run:
+
+**`npm start`**
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 ## Features
 
 #### `Add New Task ✏️`
@@ -12,7 +29,7 @@ This project is a simple website application where you can save your daily tasks
 
 #### `Delete Task 🗑️`
 
-- Each task includes a delete button that allow users to remove it.
+- Each task includes a delete button that allows users to remove it.
 
 #### `Toggle Completed Status`
 
@@ -28,7 +45,7 @@ This project is a simple website application where you can save your daily tasks
 
 #### `Input Validation ✔️`
 
-- User sees an error message when it tries to submit an empty task.
+- User sees an error message when trying to submit an empty task.
 
 ## What I have learned?
 
@@ -39,6 +56,7 @@ This project is a simple website application where you can save your daily tasks
 - Design Patterns such as `{myVar && <MyComponent>}`.
 - What are hooks, and how to use them. Ex: `useState` and `useEffect`.
 - Spread Operator (`...`).
+- Destructuring Objects.
 
 ## Challenges and Solutions
 
@@ -69,12 +87,3 @@ Used `Date.now()` for unique IDs, this is only a good solution for a small scale
 ## Preview
 
 ![App Preview Image](img/preview.png)
-
-## How to run the app
-
-In the project directory, you can run:
-
-**`npm start`**
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
