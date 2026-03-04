@@ -1,9 +1,11 @@
 .todo-list {
+  align-self: start;
   display: flex;
   flex-direction: column;
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .empty-msg {

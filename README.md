@@ -1,46 +1,90 @@
-# Getting Started with Create React App
+# Todo List App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+This project is a simple website application where you can save your daily tasks.
+
+## Preview
+
+![App Preview Image](img/preview.png)
+
+## How to install the app
+
+Firstly, install the project dependencies:
+
+**`npm install`**
+
+This command installs all the required packages listed in `package.json`.
+
+## How to run the app
 
 In the project directory, you can run:
 
-### `npm start`
+**`npm start`**
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+#### `Add New Task ✏️`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Add new tasks using an input field.
 
-### `npm run build`
+#### `Delete Task 🗑️`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Each task includes a delete button that allows users to remove it.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### `Toggle Completed Status`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Mark tasks as completed or uncompleted.
 
-### `npm run eject`
+#### `Persistent Storage 💾`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Tasks are saved in the browser’s localStorage, so they remain available after refreshing the page.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### `Empty State Message ✉️`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- User sees an empty state when there are no tasks in the list.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### `Input Validation ✔️`
 
-## Learn More
+- User sees an error message when trying to submit an empty task.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## What I have learned?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Basic React Structure.
+- Basic use of TypeScript.
+- How to create a React component.
+- How to add Prettier to a React project.
+- Design Patterns such as `{myVar && <MyComponent>}`.
+- Methods like `map()`.
+- What are hooks, and how to use them. Ex: `useState` and `useEffect`.
+- Spread Operator (`...`).
+- Destructuring Objects.
+
+## Challenges and Solutions
+
+#### `Data Persistence with localStorage 💾`
+
+**Problem**
+When refreshing the website, all tasks disappeared because React state resets on every render.
+
+**Solution**
+Used `useEffect` to store tasks in `localStorage`.
+
+#### `Preventing Empty Task Submission ❌`
+
+**Problem**
+Users were able to submit empty tasks, or tasks with spaces in the beginning or ending.
+
+**Solution**
+Implemented a input validation before updating the tasks.
+
+#### `Repeated Task ID 🆔`
+
+**Problem**
+When completed one task and added one new, both have the same ID.
+
+**Solution**
+Used `Date.now()` for unique IDs, this is only a good solution for a small scale project.

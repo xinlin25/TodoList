@@ -12,6 +12,11 @@ const TodoApp: React.FC = () => {
   const [text, setText] = useState("");
   const [error, setError] = useState("");
 
+  //useEffect(function, array)
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   const toggleCompleted = (id: number) => {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
@@ -44,10 +49,6 @@ const TodoApp: React.FC = () => {
     setError("");
   };
 
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
   return (
     <div className="app-container">
       <h1>Todo List</h1>
@@ -59,7 +60,9 @@ const TodoApp: React.FC = () => {
           onChange={(e) => setText(e.target.value)}
           placeholder="Write your task here..."
         />
-        <button type="submit">Enter</button>
+        <button type="submit" title="Add your task to the list">
+          Enter
+        </button>
       </form>
 
       {tasks.length > 0 ? (
@@ -71,7 +74,6 @@ const TodoApp: React.FC = () => {
       ) : (
         <p className="empty-msg">No tasks yet. Add one to the list!</p>
       )}
-
     </div>
   );
 };
