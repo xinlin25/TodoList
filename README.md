@@ -1,7 +1,5 @@
 # Todo List App
 
----
-
 This project is a simple website application where you can save your daily tasks.
 
 ## Preview
